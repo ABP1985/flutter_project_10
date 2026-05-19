@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'splash.dart';
+import 'listing/home.dart';
 
 void main() {
   runApp(const MainApp());
@@ -12,8 +12,9 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: Scaffold(
-        body: SplashScreen()
-      ),
-    );
+        body: MyWidget()
+        ),
+      );
+    
   }
 }
