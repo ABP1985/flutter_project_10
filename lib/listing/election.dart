@@ -2,12 +2,6 @@ import 'package:flutter/material.dart';
 
 class Election extends StatefulWidget {
 
-  final String city;
-
-  const Election({super.key,
-  required this.city,
-  });
-
   @override
   State<Election> createState() => _MyWidgetState();
 }
