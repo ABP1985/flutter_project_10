@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'election.dart';
+
 
 class MyWidget extends StatefulWidget {
   const MyWidget({super.key});
