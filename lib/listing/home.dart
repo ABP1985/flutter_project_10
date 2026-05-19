@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'election.dart';
 
 class MyWidget extends StatefulWidget {
   const MyWidget({super.key});
@@ -72,7 +72,17 @@ class _MyWidgetState extends State<MyWidget> {
             const SizedBox(height: 30),
 
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () { if (selectedCity != null) {
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Election(
+                        city: selectedCity!,
+                      ),
+                    ),
+                  );
+                }},
 
               child: const Text(
                 "View Elections",

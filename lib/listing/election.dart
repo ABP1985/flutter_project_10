@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'candidates.dart';
 
 class Election extends StatefulWidget {
+  final String city;
+
+  const Election({super.key, required this.city});
 
   @override
   State<Election> createState() => _MyWidgetState();
@@ -10,7 +14,6 @@ class _MyWidgetState extends State<Election> {
   @override
   Widget build(BuildContext context) {
     List elections = [
-
       {
         "title": "Municipal Election",
         "place": "Vadodara City",
@@ -34,37 +37,44 @@ class _MyWidgetState extends State<Election> {
     ];
 
     return Scaffold(
-
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("Vadodara Elections",style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),),
-         backgroundColor: const Color.fromARGB(255, 17, 177, 158),
+        title: const Text(
+          "Vadodara Elections",
+          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: const Color.fromARGB(255, 17, 177, 158),
       ),
 
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        color:  const Color.fromARGB(255, 194, 255, 242),
+        color: const Color.fromARGB(255, 194, 255, 242),
 
         child: Column(
           children: [
-
             const SizedBox(height: 20),
 
             const Text(
               "Available Elections",
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
 
             const SizedBox(height: 20),
 
             // MAP
             ...elections.map((e) {
-
-              return Container(
+              return GestureDetector(
+                onTap: (){
+                  Navigator.push(context, 
+                  MaterialPageRoute(builder:(context)=>Candidates(candidate: e["title"],
+                  ),
+                  ),
+                  );
+                },
+              
+              
+              child: Container(
                 margin: const EdgeInsets.symmetric(
                   horizontal: 20,
                   vertical: 10,
@@ -79,7 +89,6 @@ class _MyWidgetState extends State<Election> {
 
                 child: Row(
                   children: [
-
                     // ICON
                     Container(
                       height: 60,
@@ -90,11 +99,7 @@ class _MyWidgetState extends State<Election> {
                         borderRadius: BorderRadius.circular(12),
                       ),
 
-                      child: Icon(
-                        e["icon"],
-                        size: 35,
-                        color: Colors.black,
-                      ),
+                      child: Icon(e["icon"], size: 35, color: Colors.black),
                     ),
 
                     const SizedBox(width: 15),
@@ -103,7 +108,6 @@ class _MyWidgetState extends State<Election> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-
                         Text(
                           e["title"],
                           style: const TextStyle(
@@ -124,15 +128,15 @@ class _MyWidgetState extends State<Election> {
 
                         const SizedBox(height: 5),
 
-                        Text(
-                          "Date : ${e["date"]}",
-                        ),
+                        Text("Date : ${e["date"]}"),
                       ],
                     ),
+                    const SizedBox(width: 15),
                   ],
                 ),
-              );
+              ));
             }).toList(),
+        
           ],
         ),
       ),
