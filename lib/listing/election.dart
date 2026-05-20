@@ -7,10 +7,10 @@ class Election extends StatefulWidget {
   const Election({super.key, required this.city});
 
   @override
-  State<Election> createState() => _MyWidgetState();
+  State<Election> createState() => _ElectionState();
 }
 
-class _MyWidgetState extends State<Election> {
+class _ElectionState extends State<Election> {
   @override
   Widget build(BuildContext context) {
     List elections = [
@@ -65,78 +65,78 @@ class _MyWidgetState extends State<Election> {
             // MAP
             ...elections.map((e) {
               return GestureDetector(
-                onTap: (){
-                  Navigator.push(context, 
-                  MaterialPageRoute(builder:(context)=>Candidates(candidate: e["title"],
-                  ),
-                  ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Candidates(candidate: e["title"]),
+                    ),
                   );
                 },
-              
-              
-              child: Container(
-                margin: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 10,
-                ),
 
-                padding: const EdgeInsets.all(15),
+                child: Container(
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 10,
+                  ),
 
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
-                ),
+                  padding: const EdgeInsets.all(15),
 
-                child: Row(
-                  children: [
-                    // ICON
-                    Container(
-                      height: 60,
-                      width: 60,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
 
-                      decoration: BoxDecoration(
-                        color: Colors.blue.shade100,
-                        borderRadius: BorderRadius.circular(12),
+                  child: Row(
+                    children: [
+                      // ICON
+                      Container(
+                        height: 60,
+                        width: 60,
+
+                        decoration: BoxDecoration(
+                          color: Colors.blue.shade100,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+
+                        child: Icon(e["icon"], size: 35, color: Colors.black),
                       ),
 
-                      child: Icon(e["icon"], size: 35, color: Colors.black),
-                    ),
+                      const SizedBox(width: 15),
 
-                    const SizedBox(width: 15),
-
-                    // DETAILS
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          e["title"],
-                          style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                      // DETAILS
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            e["title"],
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                        ),
 
-                        const SizedBox(height: 5),
+                          const SizedBox(height: 5),
 
-                        Text(
-                          e["place"],
-                          style: const TextStyle(
-                            color: Colors.grey,
-                            fontSize: 16,
+                          Text(
+                            e["place"],
+                            style: const TextStyle(
+                              color: Colors.grey,
+                              fontSize: 16,
+                            ),
                           ),
-                        ),
 
-                        const SizedBox(height: 5),
+                          const SizedBox(height: 5),
 
-                        Text("Date : ${e["date"]}"),
-                      ],
-                    ),
-                    const SizedBox(width: 15),
-                  ],
+                          Text("Date : ${e["date"]}"),
+                        ],
+                      ),
+                      const SizedBox(width: 15),
+                    ],
+                  ),
                 ),
-              ));
+              );
             }).toList(),
-        
           ],
         ),
       ),
