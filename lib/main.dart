@@ -1,6 +1,6 @@
+//import 'package:e_voting/fragment_holder_admin.dart';
 import 'package:flutter/material.dart';
-import 'listing/home.dart';
-
+import 'splash.dart';
 void main() {
   runApp(const MainApp());
 }
@@ -12,7 +12,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       home: Scaffold(
-        body: MyWidget()
+        body: SplashScreen()
         ),
       );
     
