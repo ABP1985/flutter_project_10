@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'login.dart';
+import 'fragment_holder_admin.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -13,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(
-      const Duration(seconds: 3),
+      const Duration(seconds: 5),
           () {
         Navigator.pushReplacement(
 
@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
           MaterialPageRoute(
 
             builder: (context) =>
-            const LoginPage(),
+            const WidgetFragmentHolder(),
           ),
         );
       },

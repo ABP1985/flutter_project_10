@@ -88,7 +88,13 @@ class Election extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                       ),
 
-                      child: Icon(elections[index]["icon"], size: 35),
+                      child: Icon(
+                        IconData(
+                          elections[index]["icon"],
+
+                          fontFamily: 'MaterialIcons',
+                        ),
+                      ),
                     ),
 
                     const SizedBox(width: 15),
