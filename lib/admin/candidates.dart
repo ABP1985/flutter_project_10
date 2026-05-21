@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 class Candidates extends StatelessWidget {
   final List candidates;
 
-  final Function(int,BuildContext) onVote;
+  final Function(int, BuildContext) onVote;
 
   final Function(int) onEdit;
 
@@ -80,7 +80,13 @@ class Candidates extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
 
-                    child: Icon(candidates[index]["symbol"], size: 35),
+                    child: Icon(
+                      IconData(
+                        candidates[index]["symbol"],
+
+                        fontFamily: 'MaterialIcons',
+                      ),
+                    ),
                   ),
 
                   const SizedBox(width: 15),
@@ -117,7 +123,7 @@ class Candidates extends StatelessWidget {
 
                   ElevatedButton(
                     onPressed: () {
-                      onVote(index,context);
+                      onVote(index, context);
                     },
 
                     child: const Text("Vote"),
